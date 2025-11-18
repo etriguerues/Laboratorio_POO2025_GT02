@@ -1,11 +1,9 @@
 HELP.md
 target/
-.mvn/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-###GRADLE ###
-/.gradle/
+
 ### STS ###
 .apt_generated
 .classpath
@@ -16,8 +14,7 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea/
-out/
+.idea
 *.iws
 *.iml
 *.ipr
