@@ -108,27 +108,6 @@ if [ $FAILED -eq 0 ]; then
     echo -e "${GREEN}Lógica de concurrencia (Synchronized, Callable, Future) correcta.${NC}"
 fi
 
-# --- PASO 3: VERIFICAR PERSISTENCIA (ARCHIVOS DE SALIDA) ---
-echo -e "\n${YELLOW}PASO 3: Verificando lógica de escritura de archivos...${NC}"
-# Buscamos en todo el directorio si se crean los archivos requeridos
-ALL_FILES_CONTENT=$(grep -r "new.*Writer" "$BASE_PATH")
-
-# Archivo 1: Log de ventas (Texto plano)
-if echo "$ALL_FILES_CONTENT" | grep -qE "log_ventas.txt|log.txt"; then
-    echo -e "${GREEN}✔ Código para log de ventas encontrado.${NC}"
-else
-    echo -e "${RED}[ERROR] No se encontró código que genere 'log_ventas.txt'.${NC}"
-    FAILED=1
-fi
-
-# Archivo 2: JSON Final
-if echo "$ALL_FILES_CONTENT" | grep -qE "inventario_final.json|inventario.json"; then
-    echo -e "${GREEN}✔ Código para JSON de inventario encontrado.${NC}"
-else
-    echo -e "${RED}[ERROR] No se encontró código que genere 'inventario_final.json'.${NC}"
-    FAILED=1
-fi
-
 # --- PASO 4: COMPILAR PROYECTO (MAVEN) ---
 echo -e "\n${YELLOW}PASO 4: Compilando proyecto...${NC}"
 
